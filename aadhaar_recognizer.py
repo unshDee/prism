@@ -18,11 +18,10 @@ class AadhaarRecognizer:
 
     def getRegex(self) -> None:
 
-        regex = r"[2-9]{1}[0-9]{3}\s?[0-9]{4}\s?[0-9]{4}"
+        regex = r"[2-9]{1}[0-9]{3}\s?[0-9]{4}\s?[0-9]{4}\s"
         pattern = re.compile(regex)
 
         matches = re.findall(pattern, self.text)
-        print(matches)
 
         for match in matches:
             entity = Entity(
@@ -30,7 +29,8 @@ class AadhaarRecognizer:
                 label=self.entityName,
                 start=self.text.index(match),
                 end=self.text.index(match) + len(match),
-                score=0.9
+                sensitivityScore=0.9,
+                country="INDIA"
             )
             self.entityList.append(entity)
 

@@ -29,7 +29,7 @@ class EmailRecognizer:
                 label=self.entityName,
                 start=self.text.index(match),
                 end=self.text.index(match) + len(match),
-                score=0.5
+                sensitivityScore=0.5
             )
             self.entityList.append(entity)
 

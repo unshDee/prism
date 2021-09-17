@@ -4,7 +4,6 @@ from typing import List
 
 nlp = spacy.load("en_core_web_sm")
 
-
 class PersonRecognizer:
 
     """
@@ -31,7 +30,7 @@ class PersonRecognizer:
                     label=self.entityName,
                     start=self.text.index(ent.text),
                     end=self.text.index(ent.text) + len(ent.text),
-                    score=0.3
+                    sensitivityScore=0.3
                 )
                 self.entityList.append(entity)
 
