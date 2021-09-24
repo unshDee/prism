@@ -1,0 +1,20 @@
+This project consists of the detection of the PII(Personally identifiable information) entity. Personally identifiable information (PII) can be sensitive or non-sensitive. 
+Sensitive personal information includes legal statistics such as:
+Full name
+Social Security Number (SSN)
+Driver’s license
+Mailing address
+Credit card information
+Aadhar Card
+Financial information
+Medical records
+
+Non-sensitive or indirect PII is easily accessible from public sources like phonebooks, the Internet, and corporate directories. Examples of non-sensitive or indirect PII include:
+Zipcode
+Race
+Gender
+Date of birth
+Place of birth
+Religion
+
+This repository consists of detection of sensitive PII such as Aadhar Card, Credit Card, Email, Person and Indian Driving License Number.
