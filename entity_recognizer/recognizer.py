@@ -1,3 +1,4 @@
+"""IGNORE THIS CLASS, WORKING ON INHERITANCE AND STRUCTURING"""
 from entity import Entity
 from typing import List
 

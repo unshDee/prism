@@ -4,9 +4,12 @@ import recognizers
 
 app = Flask(__name__)
 
-countEntities = {}
+# countEntities = {}
 
 def pattern_recognizer(sample, country):
+    # creating countEntities inside method so that for every new sample text
+    # it creates a new dictionary and doesn't add on to some previous dictionary
+    countEntities = {}
     recognizedEntities = recognizers.recognizers(sample, country)
     for ents in recognizedEntities:
         for ent in ents:
@@ -14,10 +17,10 @@ def pattern_recognizer(sample, country):
             if var["label"] in countEntities: # exists
                 countEntities[var["label"]] += 1
             else:
-                countEntities.add(var["label", 1])
+                countEntities[var["label"]] = 1
             
             sample = sample.replace(var["text"], "<code><b>{" + var["label"] + " [" + str(var["sensitivityScore"]) + "]}</b></code>", 1)
-    return sample +"\n" + f"{countEntities}"
+    return sample + f"<br><br>{countEntities}"
 
 @app.route("/")
 def index():
