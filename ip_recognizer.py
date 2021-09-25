@@ -18,10 +18,11 @@ class IPRecognizer:
 
         regexIp6 = r"\s*(?!.*::.*::)(?:(?!:)|:(?=:))(?:[0-9a-f]{0,4}(?:(?<=::)|(?<!::):)){6}(?:[0-9a-f]{0,4}(?:(?<=::)|(?<!::):)[0-9a-f]{0,4}(?:(?<=::)|(?<!:)|(?<=:)(?<!::):)|(?:25[0-4]|2[0-4]\d|1\d\d|[1-9]?\d)(?:\.(?:25[0-4]|2[0-4]\d|1\d\d|[1-9]?\d)){3})\s*"
         regexIp4 = r"\b(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b"
-        pattern = re.compile(regexIp6)
-        pattern=re.compile(regexIp4)
+        pattern1 = re.compile(regexIp6)
+        pattern2=re.compile(regexIp4)
 
-        matches = re.findall(pattern, self.text)
+        matches = re.findall(pattern1, self.text)
+        matches = re.findall(pattern2, self.text)
 
         for match in matches:
             entity = Entity(
