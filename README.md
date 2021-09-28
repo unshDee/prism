@@ -70,6 +70,6 @@ deactivate
 On Command Prompt/Powershell (windows)
 
 ```ps1
-cd venv/Scripts
-deactivate.bat
+> cd venv/Scripts
+> deactivate.bat
 ```
