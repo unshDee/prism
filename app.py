@@ -29,8 +29,10 @@ def index(sample = None, country = None):
     if request.method == "POST":
         sample = request.form["input"]
         country = "GENERIC"
-        if "country" in request.files:
+        try:
             country = request.form["country"]
+        except:
+            country = "GENERIC"
         if sample:
             data = pattern_recognizer(sample, country)
             censoredText = data["censoredText"]
