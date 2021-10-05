@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="keywords" content="INTUITIVE">
+  <meta name="description" content="">
+  <meta name="page_type" content="np-template-header-footer-from-plugin">
+  <title>Home</title>
+  <link rel="stylesheet" href="../static/nicepage.css" media="screen">
+  <link rel="stylesheet" href="../static/style.css" media="screen">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script class="u-script" type="text/javascript" src="../static/scripts/jquery.js" defer=""></script>
+  <script class="u-script" type="text/javascript" src="../static/scripts/nicepage.js" defer=""></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link id="u-theme-google-font" rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
+
+
+
+
+  <!-- <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "name": "",
+      "logo": "images/default-logo.png"
+    }
+  </script>
+
+  <script>
+    function getAndSetVal() {
+      var txt1 = document.getElementById('write').value;
+      document.getElementById('display').value = txt1;
+    }
+
+
+    function getVal() {
+      var txt = document.getElementById('write').value;
+      alert(txt);
+    }
+  </script> -->
+
+  <meta name="theme-color" content="#478ac9">
+  <meta property="og:title" content="Home">
+  <meta property="og:type" content="website">
+</head>
+
+<body class="u-body">
+  <header class="u-clearfix u-header u-header" id="sec-760a">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+      <a href="https://www.samsungprism.com/" class="u-image u-logo u-image-1">
+        <img src="../static/images/default-logo.png" class="u-logo-image u-logo-image-1">
+      </a>
+      <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+    </div>
+    </nav>
+    </div>
+  </header>
+
+  <section class="u-align-center u-clearfix u-grey-5 u-section-3" id="carousel_6982">
+    <form action="/" method="post">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-gutter-20 u-layout-wrap u-layout-wrap-1">
+          <div class="inOut" style="display:flex; justify-content: space-around;color: rgb(79, 159, 206);">
+            <label for="input">
+              <div class="inputName" style="text-align:left;">
+                <h2>Input</h2>
+              </div>
+            </label>
+            <label>
+              <div class="outputName" style="text-align: right;">
+                <h2>Output</h2>
+              </div>
+            </label>
+          </div>
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-22 ">
+                <textarea rows="5" cols="5" name="input" id="input"
+                  class="u-container-layout u-valign-middle-xl u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-2">
+              </textarea>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-22 ">
+                <textarea rows="8" cols="8" name="output" id="output"
+                  class="u-container-layout u-valign-middle-xl u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-2"
+                  disabled>
+                  {% if output %}
+                  {{output}}
+                  {% endif %}
+              </textarea>
+              </div>
+            </div>
+            <!-- <div class="options">
+              <div class="dropdown">
+                <button class="dropbtn">Country<i class="fa fa-caret-down"
+                    style="font-size:20px;padding-left: 5px;color:rgb(79, 159, 206)red"></i></button>
+                <div class="dropdown-content">
+                  <a href="#">India</a>
+                  <a href="#">USA</a>
+                </div>
+              </div>
+            </div> -->
+            
+            <input type="radio" name="country" id="country" value="INDIA"> India
+            <input type="radio" name="country" id="country" value="USA"> USA
+            <div class="convertBtn">
+              <!-- <input type="submit" value="Convert" class="convert"></input> -->
+              <button type="submit" class="convert">CONVERT</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="tableArea" style="padding: 0 8rem;">
+      <div class="tableContent">
+        <div style="overflow-x: auto;">
+          <table>
+            <tr>
+              <th>Field Type</th>
+              <th>Score</th>
+              <th>Text</th>
+              <th>Country</th>
+              <th>Span</th>
+            </tr>
+            <!-- <tr>
+              <td>CREDIT_CARD</td>
+              <td>1</td>
+              <td>4095-2609-9393-4932</td>
+            </tr>
+            <tr>
+              <td>CRYPTO</td>
+              <td>1 </td>
+              <td>16Yeky6GMjeNkAiNcBY7ZhrLoMSgg1BoyZ</td>
+            </tr>
+            <tr>
+              <td>DOMAIN_NAME</td>
+              <td>1 </td>
+              <td>microsoft.com</td>
+            </tr> -->
+            {% if entities %}
+            {% for entity in entities %}
+            <tr>
+              <td>{{entity["label"]}}</td>
+              <td>{{entity["sensitivityScore"]}} </td>
+              <td>{{entity["text"]}}</td>
+              <td>{{entity["entityType"]}}</td>
+              <td>{{entity["span"]}}</td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-82fb">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <p class="u-small-text u-text u-text-variant u-text-1"></p>
+    </div>
+  </footer>
+</body>
+
+</html>
